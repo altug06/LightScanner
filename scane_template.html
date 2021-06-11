@@ -1,0 +1,16 @@
+
+{{range $host := .}}
+  <p>  {{ $host.IP }} === {{range $d := $host.Domain }} {{ $d }},{{ end }}  :  </p>  
+  {{range $port := $host.Ports}}
+    {{ if or (eq $port "80") (eq $port "443") (eq $port "8080")}}
+        <li style="color: green">{{ $port }}</li>
+    {{ else }}
+        <li style="color: red">{{ $port }}</li>
+    {{ end }}
+  {{ end }}
+{{ end }}
+
+
+
+
+                  
